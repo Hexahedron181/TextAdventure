@@ -316,7 +316,7 @@ def Room3(Open, descriptions, unlocked, lb, tb, cabinet):
             room3 = 0
             
 
-        elif act[0] == "Open":
+        elif act[0] == "Open" and l>1:
             if act[1] == "Cabinet" and unlocked == 1 and l<3 and cabinet == 0:
                 text("You pull the freshly unlocked door. It swings open with an ear-splitting squeak, like a dolphin on helium. Inside the cabinet is a scary looking axe.",speed, 0)
                 cabinet = 1
@@ -331,7 +331,7 @@ def Room3(Open, descriptions, unlocked, lb, tb, cabinet):
                     text(error, speed, 0)
                     
                     
-        elif act[0] == "Look":
+        elif act[0] == "Look" and l>1:
             if unlocked == 1 and act[1] == "Axe" and l<3:
                 text("It’s an incredibly scary and sharp looking axe. The type that burly lumberjack types might use to chop down trees, or burly firefighters might use to breaks down doors. Or burly…ahem…it’s an axe.", speed, 0)
             elif act[1] == "Keyhole" and l<3:
@@ -351,7 +351,7 @@ def Room3(Open, descriptions, unlocked, lb, tb, cabinet):
                     text(error, speed, 0)
                     
 
-        elif act[0] == "Take":
+        elif act[0] == "Take" and l>1:
             if act[1] == "Cabinet" and l<3:
                 text("It’s a cabinet. You don’t just take cabinets. They’re for cabinet-ing.", speed, 0)
             elif act[1] == "Axe" and l<3 and unlocked == 1 and "Axe" not in inventory:
@@ -366,7 +366,7 @@ def Room3(Open, descriptions, unlocked, lb, tb, cabinet):
                     text(error, speed, 0)
                     
 
-        elif act[0] == "Use":
+        elif act[0] == "Use" and l>1:
             if l<3:
                 if l<2:
                     text(error, speed, 0)
@@ -426,7 +426,7 @@ def Room4(Open, descriptions, unlocked, lb, tb, cabinet):
         if l == 0:
             room4 = 0
 
-        elif act[0] == "Open" and l<3:
+        elif act[0] == "Open" and l<3 and l>1:
             if act[1] == "Window" and l<3:
                 text("It doesn't open.", speed, 0)
             else:
@@ -438,7 +438,7 @@ def Room4(Open, descriptions, unlocked, lb, tb, cabinet):
                     text(error, speed, 0)
 
                 
-        elif act[0] == "Look" and l<4:
+        elif act[0] == "Look" and l<4 and l>1:
             if act[1] == "Window" and l<3:
                 text("Given the strange, otherworldly events that took place to bring you here, and the odd, mysteriousness of the building you’re stuck in, you expect to see mystical, fantasy scenes through the window.\nInstead you see and empty car park.", speed, 0)
             elif act[1] == "Carpark" and l<3:
@@ -453,7 +453,7 @@ def Room4(Open, descriptions, unlocked, lb, tb, cabinet):
                 else:
                     text(error, speed, 0)
             
-        elif act[0] == "Take" and l<3:
+        elif act[0] == "Take" and l<3 and l>1:
             if act[1] == "Window":
                 text("Are you a bit challenged? It’s a window. If you take it, what will you look out of?.", speed, 0)
             else:
@@ -505,7 +505,7 @@ def Room5(Open, descriptions, unlocked, lb, tb, cabinet):
             room4 = 0
 
 
-        elif act[0] == "Look":
+        elif act[0] == "Look" and l>1:
             if act[1] == "Bottle" and l<3:
                 text("It’s a green, glass bottle that looks like it was once used to hold wine. Sadly, there is no wine in there now.", speed, 0)
             elif act[1] == "Dark" and l<3:
@@ -519,7 +519,7 @@ def Room5(Open, descriptions, unlocked, lb, tb, cabinet):
                     text(error, speed, 0)
 
                 
-        elif act[0] == "Take":
+        elif act[0] == "Take" and l>1:
             if act[1] == "Bottle" and l<3:
                 text("You pick up the bottle and place it easily in your astonishingly capacious pocket.", speed, 0)
                 inventory.append("Bottle")
