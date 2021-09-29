@@ -2,7 +2,7 @@ import time
 error = "I don't understand."
 no = "You can't do that."
 inventory = []
-speed = 0
+speed = 1
 unlocked = 0
 DesSp = ["1", "2", "3", "4", "5"]
 items = [["Door", "Bucket", "Ladder", "Steps", "Lock"],["Key", "Table"],["Cabinet", "Floor Hole", "Keyhole"],["Window", "Carpark", "Car", "Park"],["Bottle", "Dark"]]
@@ -65,7 +65,7 @@ def text(text, speed, skip):
 
 def intro():
     opening = "Well, that was…odd. One minute you’re sitting on your bed watching Revengers Assembly 2: Magnesium Dude, when there’s a flash, a strange ringing sound, and your bedroom disappears only to be replaced with…something else. You’re not sure what’s going on, but it’s weird. Instead of walls papered with Spoder-man and a desk with a brand new Z-Box 4000 on it, there are stone walls, wooden beams and floorboards, and what appears to be a bucket. There’s fuckery afoot, and you’re not sure what to do about it. Escape, probably. Yeah, escape sounds good."
-    text(opening, 0, 0)
+    text(opening, 1, 0)
     Room1(0, speed, 0, 1, 1, 0)
 
 def Room1(Open, descriptions, unlocked, lb, tb, cabinet):
@@ -98,7 +98,7 @@ def Room1(Open, descriptions, unlocked, lb, tb, cabinet):
             room1 = 0
             
 
-        elif act[0] == "Open":
+        elif act[0] == "Open" and l>1:
             if act[1] == "Door"  and l<3 and Open != 1:
                 text("Despite the fact that the door is very obviously locked with the aforementioned heavy duty hardware, you attempt to open the door anyway. Unsurprisingly, it doesn’t budge an inch.You touch paint to see if the ‘Wet Paint’ sign is lying, don’t you? Idiot.", speed, 0)
             elif act[1] == "Door" and l<3 and Open == 1:
@@ -110,7 +110,7 @@ def Room1(Open, descriptions, unlocked, lb, tb, cabinet):
                 else:
                     text(error, speed, 0)
 
-        elif act[0] == "Look":
+        elif act[0] == "Look" and l>1:
             
             if act[1] == "Door" and l<3:
                 text("It’s a large, heavy looking wooden door. The large padlock holding in place a large bolt suggests that someone or something wants to keep someone or something else out.", speed, 0)
@@ -147,7 +147,7 @@ def Room1(Open, descriptions, unlocked, lb, tb, cabinet):
                 else:
                     text(error, speed, 0)
 
-        elif act[0] == "Take":
+        elif act[0] == "Take" and l>1:
             if act[1] == "Bucket" and l<3 and tb != 6 and "Bucket" in items[0]:
                 if tb == 1:
                     T = "You reach for the handle. As you clasp the cold metal, you realise too late that it is razor-sharp. As you pull you hand away the handle opens a small cut on your hand. The blood drips into the bucket and vanishes. The cut magically heals."
@@ -170,7 +170,7 @@ def Room1(Open, descriptions, unlocked, lb, tb, cabinet):
                 else:
                     text(error, speed, 0)
 
-        elif act[0] == "Use":
+        elif act[0] == "Use" and l>1:
             if act[1] == "Axe" and l<3 and "Axe" in inventory:
                 text("Don't even think about using that on yourself.", speed, 0)
             elif "Axe" in inventory and act[1] == "Axe" and act[2] == "With" and act[3] == "Door" and l<5:
@@ -244,7 +244,7 @@ def Room2(Open, descriptions, unlocked, lb, tb, cabinet):
         if l == 0:
             room2 = 0
 
-        elif act[0] == "Look":
+        elif act[0] == "Look" and l>1:
             if act[1] == "Table" and l<3:
                 text("It’s a large, crudely built, but sturdy looking wooden table. The surface was, you assume, originally polished to a high shine, but years of use for, no doubt dubious, activities has dulled the surface. The plethora of scarlet coloured stains that adorn the table suggest that it was used for activities that you’d rather not think about, but probably involved a persons’ insides becoming their outsides.", speed, 0)
             elif act[1] == "Key" and l<3:
@@ -257,7 +257,7 @@ def Room2(Open, descriptions, unlocked, lb, tb, cabinet):
                 else:
                     text(error, speed, 0)
 
-        elif act[0] == "Take":
+        elif act[0] == "Take" and l>1:
             if act[1] == "Table" and l<3:
                 text("Despite being a fantastic specimen of a human, lifting heavy wooden tables is beyond even your capabilities. Besides, it wouldn’t fit in your pocket.", speed, 0)
             elif act[1] == "Key" and "Key" not in inventory and l<3:
