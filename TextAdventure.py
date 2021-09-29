@@ -555,10 +555,3 @@ def Room5(Open, descriptions, unlocked, lb, tb, cabinet):
         
     
 Menu()
-
-
-
-
-
-
-
